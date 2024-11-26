@@ -1,16 +1,26 @@
 <div>
-    <div>
-        Hello, {{ $name }}
-    </div>
+
 
     <form
-        wire:submit="changeName(document.querySelector('#newName').value)"
+        wire:submit="changeName()"
     >
         <div class="mt-2">
-            <input
-                id="newName"
+            <select
                 type="text"
-                class="block w-full border rounded-md bg-gray-700 text-white">
+                class="border rounded-md bg-gray-700 text-white"
+                wire:model.fill="greeting"
+            >
+                <option value="Hello">Hello</option>
+                <option value="Hi">Hi</option>
+                <option value="Hey" selected>Hey</option>
+                <option value="Hola">Hola</option>
+            </select>
+
+            <input
+                type="text"
+                class="border rounded-md bg-gray-700 text-white"
+                wire:model="name"
+            >
         </div>
 
         <div class="mt-2">
@@ -22,5 +32,11 @@
             </button>
 
         </div>
+
+        @if($name !== '')
+            <div class="mt-5">
+                {{ $greeting }}, {{ $name }}
+            </div>
+        @endif
     </form>
 </div>

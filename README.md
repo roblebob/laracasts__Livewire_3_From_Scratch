@@ -1,11 +1,19 @@
 ```BASH
-laravel new laracasts__Livewire_3_From_Scratch   
+laravel new laracasts__Livewire_3_From_Scratch  
+ 
 composer require livewire/livewire  
+
 php artisan make:livewire greeter
 ```
 
 
-
+```PHP
+    ...
+    wire:model.live.debounce.1000ms="name"
+    
+    wire:model.fill="greeting"
+    ...
+```
 
 
 
