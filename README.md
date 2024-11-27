@@ -1,6 +1,6 @@
 [livewire-3-from-scratch](https://laracasts.com/series/livewire-3-from-scratch/)
 
-
+# Commands used
 
 ```BASH
 laravel new laracasts__Livewire_3_From_Scratch  
@@ -24,9 +24,23 @@ php artisan make:livewire greeter
 php artisan make:model Greeting -m
 ```
 
+### 5. Using Lifecycle Hooks
 ```BASH
 php artisan migrate
 php artisan db:seed
+```
+
+### 6. Building a Search Component
+```BASH
+php artisan make:model Article -m -f 
+```
+```BASH
+php artisan db:wipe
+php artisan migrate
+php artisan db:seed
+```
+```BASH
+php artisan make:livewire search
 ```
 
 
