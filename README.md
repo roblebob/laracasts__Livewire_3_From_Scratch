@@ -20,6 +20,16 @@ php artisan make:livewire greeter
 ```
 
 
+```BASH
+php artisan make:model Greeting -m
+```
+
+```BASH
+php artisan migrate
+php artisan db:seed
+```
+
+
 
 
 
