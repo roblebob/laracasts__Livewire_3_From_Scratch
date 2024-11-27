@@ -2,7 +2,7 @@
 
 
     <form
-        wire:submit="changeName()"
+        wire:submit="changeGreeting()"
     >
         <div class="mt-2">
             <select
@@ -23,6 +23,12 @@
             >
         </div>
 
+        <div>
+            @error('name')
+                <span class="text-red-500">{{ $message }}</span>
+            @enderror
+        </div>
+
         <div class="mt-2">
             <button
                 type="submit"
@@ -33,9 +39,9 @@
 
         </div>
 
-        @if($name !== '')
+        @if($greetingMessage !== '')
             <div class="mt-5">
-                {{ $greeting }}, {{ $name }}
+                {{ $greetingMessage }}
             </div>
         @endif
     </form>
