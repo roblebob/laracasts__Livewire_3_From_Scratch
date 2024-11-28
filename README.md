@@ -45,6 +45,13 @@ php artisan make:livewire search
 
 
 
+### 7. Using Full Page Components
+```BASH
+php artisan livewire:layout
+```
+```BASH
+php artisan make:livewire show-article
+```
 
 
 
