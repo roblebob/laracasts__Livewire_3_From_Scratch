@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Article;
 use Illuminate\View\View;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
@@ -22,10 +23,10 @@ class Search extends Component
 
         $searchTerm = "%{$value}%";
 
-        $this->results = Article::where('title', 'like', $searchTerm)
-            ->get();
+        $this->results = Article::where('title', 'like', $searchTerm)->get();
     }
 
+    #[On('search:clear-results')]
     public function clear(): void
     {
         $this->reset('searchText', 'results');
