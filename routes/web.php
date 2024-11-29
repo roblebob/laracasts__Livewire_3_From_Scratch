@@ -1,12 +1,14 @@
 <?php
 
+use App\Livewire\Search;
+use App\Livewire\ShowArticle;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/search', \App\Livewire\Search::class);
+// Route::get('/search', Search::class);
 
-Route::get('/articles/{article}', \App\Livewire\ShowArticle::class);
+Route::get('/articles/{article}', ShowArticle::class);
 

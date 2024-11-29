@@ -56,6 +56,11 @@ php artisan make:livewire show-article
 
 
 
+### 8. Nesting Components
+```BASH
+php artisan make:livewire search-results
+```
+
 
 
 
