@@ -61,7 +61,10 @@ php artisan make:livewire show-article
 php artisan make:livewire search-results
 ```
 
-
+### 11. Iterating Over Collection
+```BASH
+php artisan make:livewire article-index
+```
 
 
 
