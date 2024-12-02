@@ -18,21 +18,21 @@
 </head>
 <body class="font-sans antialiased dark:bg-black dark:text-white/50" x-data x-on:click="$dispatch('search:clear-results')">
     <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
-        <div class="relative flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
-            <div id="test" class="relative w-full max-w-2xl  lg:max-w-7xl">
+        <div class="relative  flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
+            <div id="test" class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
+
                 <nav class="bg-gray-900">
-                    <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+                    <div class="max-w-screen-xl flex item-center justify-between mx-auto p-4">
                         <div class="w-full block" id="nav-bar-default">
                             <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 rtl:space-x-reversed md:mt-0 md:border-0">
                                 <li>
-                                    <a href="/" class="block py-2 px-3 text-blue-500">Home</a>
+                                    <a href="/dashboard" class="block py-2 px-3 text-blue-500">Admin Dashboard</a>
                                 </li>
                                 <li>
-                                    <a href="/dashboard" class="block py-2 px-3 text-blue-500">Admin Dashboard</a>
+                                    <a href="/dashboard/articles" class="block py-2 px-3 text-blue-500">Articles</a>
                                 </li>
                             </ul>
                         </div>
-                        <livewire:search placeholder="type something to search"/>
                     </div>
                 </nav>
 

@@ -67,7 +67,13 @@ php artisan make:livewire article-index
 ```
 
 
-
+### 12. Building Admin Dashboard
+```BASH
+php artisan make:livewire dashboard
+```
+```BASH
+php artisan make:livewire article-list
+```
 
 
 
