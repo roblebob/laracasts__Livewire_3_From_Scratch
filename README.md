@@ -74,9 +74,16 @@ php artisan make:livewire dashboard
 ```BASH
 php artisan make:livewire article-list
 ```
-
-
-
+### 13. Using Form Objects
+```BASH
+php artisan make:livewire create-article
+```
+```BASH
+php artisan make:livewire edit-article
+```
+```BASH
+php artisan livewire:form ArticleForm
+```
 
 
 
