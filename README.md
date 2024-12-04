@@ -103,6 +103,38 @@ php artisan migrate --path=/database/migrations/2024_12_03_133845_add_published_
 
 
 
+### 15. Working with Radios and Checkboxes 
+```BASH
+php artisan migrate:rollback
+```
+
+```PHP
+    ...
+    wire:model.boolean="form.allowNotifications"
+    ...
+```
+
+
+alpine:
+```PHP
+    ...
+    <div x-show="$wire.form.allowNotifications">
+    ...
+```
+
+```BASH
+php artisan migrate --path=/database/migrations/2024_12_03_133845_add_published_and_notification_to_articles.php
+```
+
+
+group of checkboxes as an array:
+make sure that each checkbox uses the same form-property as its model
+```PHP
+    ...
+    wire:model="form.notifications"
+    ...
+```
+
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
