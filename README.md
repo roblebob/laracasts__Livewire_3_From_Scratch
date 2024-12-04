@@ -74,6 +74,8 @@ php artisan make:livewire dashboard
 ```BASH
 php artisan make:livewire article-list
 ```
+
+
 ### 13. Using Form Objects
 ```BASH
 php artisan make:livewire create-article
@@ -83,6 +85,20 @@ php artisan make:livewire edit-article
 ```
 ```BASH
 php artisan livewire:form ArticleForm
+```
+
+
+### 14. Working with Checkboxes and Radios
+```BASH
+php artisan make:migration add_published_and_notification_to_articles
+```
+
+```BASH
+php artisan migrate
+```
+or if error, then directly run the migration file 
+```BASH
+php artisan migrate --path=/database/migrations/2024_12_03_133845_add_published_and_notification_to_articles.php
 ```
 
 
