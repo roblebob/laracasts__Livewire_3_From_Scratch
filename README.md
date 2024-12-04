@@ -160,6 +160,12 @@ php artisan make:livewire published-count
 ```
 
 
+### 18. Pagination
+
+```
+{{ $articles->links(data: ['scrollTo' => false]) }}
+```
+
 
 
 
