@@ -154,6 +154,11 @@ or in reverse
 
 
 
+### 17. Lazy Loading Content
+```BASH
+php artisan make:livewire published-count
+```
+
 
 
 
