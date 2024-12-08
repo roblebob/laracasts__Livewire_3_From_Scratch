@@ -170,6 +170,9 @@ php artisan make:livewire published-count
 
 
 
+### 20. Computed Properties
+
+computed properties cannot be used in form-objects just in the component itself
 
 
 

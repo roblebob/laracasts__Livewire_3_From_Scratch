@@ -20,7 +20,7 @@
     </div>
 
     <div class="my-4">
-        {{ $articles->links() }}
+        {{ $this->articles->links() }}
     </div>
 
     <table class="w-full">
@@ -31,9 +31,9 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($articles as $article)
+            @foreach($this->articles as $article)
                 <tr wire:key="{{$article->id}}" class="border-b bg-gray-800 border-gray-700">
-                    <td class="px-6 py-3">{{ $article->title }}</td>
+                    <td class="px-6 py-3 {{$article->published ? 'font-bold text-white' : ''}}">{{ $article->title }}</td>
                     <td class="px-6 py-3">
                         <a
                             href="/dashboard/articles/{{ $article->id }}/edit"
@@ -51,6 +51,6 @@
             @endforeach
     </table>
     <div class="mt-4">
-        {{ $articles->links(data: ['scrollTo' => false]) }}
+        {{ $this->articles->links(data: ['scrollTo' => false]) }}
     </div>
 </div>
