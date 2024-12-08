@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Article;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\Session;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -13,6 +14,7 @@ class ArticleList extends AdminComponent
 {
     use withPagination;
 
+    #[Session(key: 'show-only-published')]
     public $showOnlyPublished = false;
 
     #[Computed/*(persist: true)*/]
@@ -27,7 +29,8 @@ class ArticleList extends AdminComponent
     }
 
 
-    public function delete(Article $article) {
+    public function delete(Article $article): void
+    {
         if ($this->articles->count() < 15 ) {
             throw new \Exception('You cannot delete the last article');
         }
@@ -38,14 +41,12 @@ class ArticleList extends AdminComponent
         $this->dispatch('published-count:reset-count'); // added, because it will not work otherwise
     }
 
-    public function showAll() {
-        $this->showOnlyPublished = false;
+    public function togglePublished($showOnlyPublished): void
+    {
+        $this->showOnlyPublished = $showOnlyPublished;
         $this->resetPage(pageName: 'articles-paginator');
     }
 
-    public function showPublished() {
-        $this->showOnlyPublished = true;
-        $this->resetPage(pageName: 'articles-paginator');
-    }
+
 
 }

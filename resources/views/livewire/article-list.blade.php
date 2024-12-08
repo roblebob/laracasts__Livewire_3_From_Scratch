@@ -7,13 +7,19 @@
         >Create Article</a>
 
         <div>
-            <button
-                class="text-gray-200 p-2 bg-blue-700 hover:bg-blue-900 rounded-sm"
-                wire:click="showAll()"
+            <button @class([
+                    "text-gray-200 p-2 hover:bg-blue-900 rounded-sm",
+                    'bg-gray-700' => $this->showOnlyPublished,
+                    'bg-blue-700' => !$this->showOnlyPublished,
+                ])
+                wire:click="togglePublished(false)"
             >Show All</button>
-            <button
-                class="text-gray-200 p-2 bg-blue-700 hover:bg-blue-900 rounded-sm"
-                wire:click="showPublished()"
+            <button @class([
+                    "text-gray-200 p-2 hover:bg-blue-900 rounded-sm",
+                    'bg-blue-700' => $this->showOnlyPublished,
+                    'bg-gray-700' => !$this->showOnlyPublished,
+                ])
+                wire:click="togglePublished(true)"
             >Show Published (<livewire:published-count placeholder-text="...loading"/>)</button>
         </div>
 
@@ -33,7 +39,14 @@
         <tbody>
             @foreach($this->articles as $article)
                 <tr wire:key="{{$article->id}}" class="border-b bg-gray-800 border-gray-700">
-                    <td class="px-6 py-3 {{$article->published ? 'font-bold text-white' : ''}}">{{ $article->title }}</td>
+                    <td @class([
+                            "px-6 py-3",
+                            'font-bold text-white' => $article->published,
+                            '' => !$article->published,
+                            ])
+                    >{{ $article->title }}</td>
+
+
                     <td class="px-6 py-3">
                         <a
                             href="/dashboard/articles/{{ $article->id }}/edit"
