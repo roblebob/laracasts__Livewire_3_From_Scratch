@@ -175,6 +175,51 @@ php artisan make:livewire published-count
 computed properties cannot be used in form-objects just in the component itself
 
 
+### 24. Uploading Files
+
+```BASH
+php artisan make:migration add_photo_to_articles
+```
+
+```BASH
+php artisan migrate --path=/database/migrations/2024_12_08_181102_add_photo_to_articles.php
+```
+
+
+### 24. Uploading Files
+
+```BASH
+php artisan storage:link
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
