@@ -22,10 +22,10 @@ class ArticleForm extends Form
     public $published = false;
     public $allowNotifications = false;
     public $notifications = [];
-    public $photo_path = '';
+    public $photo_paths = [];
 
-    #[Validate('image|max:1024')]
-    public $photo;
+    #[Validate(['photos.*' => 'image|max:1024'])]
+    public $photos = [];
 
 
     public function setArticle(Article $article)
@@ -37,7 +37,7 @@ class ArticleForm extends Form
         $this->published = $article->published;
         $this->notifications = $article->notifications ?? [];
         $this->allowNotifications = count($this->notifications) > 0;
-        $this->photo_path = $article->photo_path;
+        $this->photo_paths = $article->photo_paths ?? [];
     }
 
     public function store()
@@ -48,11 +48,12 @@ class ArticleForm extends Form
             $this->notifications = [];
         }
 
-        if ($this->photo) {
-            $this->photo_path = $this->photo->storePublicly('article_photos', ['disk' => 'public']);
+        foreach ($this->photos as $photo) {
+            $this->photo_paths[] = $photo->storePublicly('article_photos', ['disk' => 'public']);;
         }
 
-        Article::create($this->only(['title', 'content', 'published', 'notifications', 'photo_path']));
+
+        Article::create($this->only(['title', 'content', 'published', 'notifications', 'photo_paths']));
 
         cache()->forget('published-count');
     }
@@ -65,11 +66,11 @@ class ArticleForm extends Form
             $this->notifications = [];
         }
 
-        if ($this->photo) {
-            $this->photo_path = $this->photo->storePublicly('article_photos', ['disk' => 'public']);
+        foreach ($this->photos as $photo) {
+            $this->photo_paths[] = $photo->storePublicly('article_photos', ['disk' => 'public']);;
         }
 
-        $this->article->update($this->only(['title', 'content',  'published', 'notifications', 'photo_path']));
+        $this->article->update($this->only(['title', 'content',  'published', 'notifications', 'photo_paths']));
         cache()->forget('published-count');
     }
 }

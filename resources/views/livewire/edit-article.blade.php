@@ -45,13 +45,29 @@
                 Photo
             </label>
 
+
+
+
+        <div class="mb-3">
+            <label class="block" for="article-photos">
+                Photo
+            </label>
+
             <div class="flex items-center">
-                <input type="file" wire:model="form.photo">
-                <div>
-                    @if($form->photo)
-                        <img class="w-1/2" src="{{ $form->photo->temporaryUrl() }}" alt="photo">
-                    @elseif ($form->photo_path)
-                        <img class="w-1/2" src="{{ Storage::url($form->photo_path) }}" alt="photo">
+                <input type="file"
+                       wire:model="form.photos"
+                       multiple
+                >
+                <div class="flex-col items-center">
+                    @if(count($form->photos) > 0)
+                        @foreach($form->photos as $photo)
+                            <img class="w-1/2 border border-white border-spacing-1 rounded-md" src="{{ $photo->temporaryUrl() }}" alt="photo">
+                        @endforeach
+                    @elseif ($form->photo_paths && count($form->photo_paths) > 0)
+                        @foreach($form->photo_paths as $photo_path)
+                            <img class="w-1/2 border border-white border-spacing-1 rounded-md" src="{{ Storage::url($photo_path) }}" alt="photo">
+                        @endforeach
+
                     @endif
                 </div>
             </div>
@@ -60,9 +76,6 @@
                 @error('form.photo') <span class="text-red-600">{{ $message }}</span> @enderror
             </div>
         </div>
-
-
-
 
 
 

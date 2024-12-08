@@ -30,17 +30,20 @@
 
 
         <div class="mb-3">
-            <label class="block" for="article-photo">
+            <label class="block" for="article-photos">
                 Photo
             </label>
 
             <div class="flex items-center">
                 <input type="file"
-                       wire:model="form.photo"
+                       wire:model="form.photos"
+                       multiple
                 >
-                <div>
-                    @if($form->photo)
-                        <img class="w-1/2" src="{{ $form->photo->temporaryUrl() }}" alt="photo">
+                <div class="flex-col items-center">
+                    @if(count($form->photos) > 0)
+                        @foreach($form->photos as $photo)
+                            <img class="w-1/2 border border-white border-spacing-1 rounded-md" src="{{ $photo->temporaryUrl() }}" alt="photo">
+                        @endforeach
                     @endif
                 </div>
             </div>
