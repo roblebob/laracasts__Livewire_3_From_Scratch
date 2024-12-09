@@ -1,6 +1,8 @@
 <div class="m-auto w-1/2 mb-4">
     <h3 class="text-lg text-gray-200 mb-3">Create Article</h3>
     <form wire:submit="save">
+
+
         <div class="mb-3">
             <label class="block" for="article-title">Title</label>
             <input
@@ -14,6 +16,8 @@
             </div>
         </div>
 
+
+
         <div class="mb-3">
             <label class="block" for="article-content">Content</label>
             <textarea
@@ -25,7 +29,6 @@
                 @error('form.content') <span class="text-red-600">{{ $message }}</span> @enderror
             </div>
         </div>
-
 
 
 

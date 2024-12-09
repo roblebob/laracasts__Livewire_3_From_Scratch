@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::table('articles', function (Blueprint $table) {
             $table->string('photo_paths')->nullable();
         });
+
+
     }
 
     /**
