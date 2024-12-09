@@ -40,12 +40,6 @@
 
 
 
-        <div class="mb-3">
-            <label class="block" for="article-photo">
-                Photo
-            </label>
-
-
 
 
         <div class="mb-3">
