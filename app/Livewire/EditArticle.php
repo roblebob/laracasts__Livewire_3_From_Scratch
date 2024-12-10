@@ -23,14 +23,14 @@ class EditArticle extends AdminComponent
 
     public function downloadPhoto()
     {
-//        return response()->download(
-//            Storage::disk('public')->path( $this->form->photo_path),
-//            'article.png'
-//        );
+        return response()->download(
+            Storage::disk('public')->path( $this->form->photo_path),
+            'article.png'
+        );
 
-        return response()->streamDownload( function() {
-            // ...
-        }, 'article.png');
+//        return response()->streamDownload( function() {
+//            // ...
+//        }, 'article.png');
     }
 
 

@@ -193,8 +193,9 @@ php artisan storage:link
 ```
 
 
+### 26. Building Isolating Updates
 
-
+Lazy Components are Isolated updated by nature
 
 
 
