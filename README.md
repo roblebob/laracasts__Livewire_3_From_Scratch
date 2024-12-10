@@ -198,6 +198,27 @@ php artisan storage:link
 Lazy Components are Isolated updated by nature
 
 
+### 28. Applying Transitions
+
+```html
+<div wire:transition>
+```
+```html
+<div wire:transition.duration.1000ms>
+```
+```html
+<div wire:transition.in>
+```
+```html
+<div wire:transition.out>
+```
+```html
+<div wire:transition.opacity>
+```
+```html
+<div wire:transition.scale>
+```
+
 
 
 
